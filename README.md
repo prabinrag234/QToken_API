@@ -10,3 +10,7 @@ dotnet ef database update
 
 Password encryption
 BCrypt.Net
+Why This Is Secure
+. Even if someone steals your database, they can't reverse the hashes
+· You're not storing sensitive plaintext
+. BCrypt adds a salt and is slow by design, making brute-force attacks harder
