@@ -2,7 +2,7 @@
 
 namespace QTokenAPI.DataTransferObject
 {
-    public class UserRegistrationDto
+    public class UserRegistrationDTO
     {
         [Required]
         [MaxLength(100)]

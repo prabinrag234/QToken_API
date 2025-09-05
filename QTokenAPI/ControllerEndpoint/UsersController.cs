@@ -7,7 +7,7 @@ using QTokenAPI.EntityModels;
 namespace QTokenAPI.ControllerEndpoint
 {
     [ApiController]
-    [Route("api/user/register")]
+    [Route("api/user")]
     public class UsersController : ControllerBase
     {
         private readonly QTokenDBContext _context;
@@ -17,8 +17,8 @@ namespace QTokenAPI.ControllerEndpoint
             _context = context;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Register(UserRegistrationDto dto)
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(UserRegistrationDTO dto)
         {
             // Optional: Check if username already exists
             if (await _context.Users.AnyAsync(u => u.UserName == dto.UserName))
@@ -40,6 +40,26 @@ namespace QTokenAPI.ControllerEndpoint
 
             return Ok(new { message = "Registration successful", userId = user.UserId });
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(UserLoginDTO dto)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == dto.UserName);
+            if (user == null)
+                return Unauthorized("Invalid username");
+
+            bool isValid = BCrypt.Net.BCrypt.Verify(dto.Password, user.Password);
+            if (!isValid)
+                return Unauthorized("Invalid password");
+
+            return Ok(new
+            {
+                message = "Login successful",
+                userId = user.UserId,
+                role = user.Role
+            });
+        }
+
 
         private string HashPassword(string password)
         {
