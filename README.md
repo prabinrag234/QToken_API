@@ -6,3 +6,7 @@ dotnet ef migrations add InitialCreate
 
 Apply Migration
 dotnet ef database update
+
+
+Password encryption
+BCrypt.Net
