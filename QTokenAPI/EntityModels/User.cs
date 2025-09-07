@@ -33,6 +33,6 @@ namespace QTokenAPI.EntityModels
         [Required]
         [MaxLength(10)]
         [Column("role")]
-        public string Role { get; set; } = "user";
+        public string ?Role { get; set; }
     }
 }

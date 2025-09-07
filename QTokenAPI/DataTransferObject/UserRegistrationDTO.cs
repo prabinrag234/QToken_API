@@ -21,6 +21,6 @@ namespace QTokenAPI.DataTransferObject
         public string Speciality { get; set; } = string.Empty;
 
         [MaxLength(10)]
-        public string Role { get; set; } = "user";
+        public string Role { get; set; } = "User";
     }
 }
