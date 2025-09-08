@@ -60,6 +60,11 @@ namespace QTokenAPI.ControllerEndpoint
             });
         }
 
+        [HttpGet("haveadmin")]
+        public async Task<bool> AdminExists()
+        {
+            return await _context.Users.AnyAsync(u => u.Role == "Admin");
+        }
 
         private string HashPassword(string password)
         {

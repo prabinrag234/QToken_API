@@ -1,6 +1,6 @@
 ﻿{
   "profiles": {
-    "Kestrel Server Development": {
+    "Kestrel Development Server": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
@@ -9,7 +9,7 @@
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5000"
     },
-    "Kestrel Server Production": {
+    "Kestrel Production Server": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
@@ -18,7 +18,7 @@
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5001"
     },
-    "Kestrel Server Stage": {
+    "Kestrel Stage Server": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
